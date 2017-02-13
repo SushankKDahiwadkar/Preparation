@@ -1,0 +1,93 @@
+1. What is Inversion of control (IOC) and Dependancy Injection?
+-> Inversion of control is used to make the code loosely coupled. Which means rather creating the objects or generating the values into the code itself we provide the value externally, which is also called as dependancy injection. See the following code snippet.
+	
+	Before IOC and DI :
+	class Employee {
+		Address address;
+		Employee() {
+			this.address = new Address();
+		}
+	}
+	
+	After IOC and DI :
+	
+	class Employee {
+		Address address;
+		Employee(Address address) {
+			this.address = address;
+		}
+	}
+	
+===========================================================================================================================================================
+
+2. What is Dependancy Injection?
+-> In dependacny injection the values to the variables are provided externally i.e. from a configuration file or a schema object (in case of ORM). The file from which the values is also called as configuration file.
+
+===========================================================================================================================================================
+
+3. What are advantages of Dependancy Injection?
+-> 1. Code becomes lossely coupled.
+   2. Code is easy to test and maintain.
+
+===========================================================================================================================================================
+
+4. What are the Advantages of spring framework?
+->  1. Predefined Templates.
+	2. Loose coupling.
+	3. Easy to test.
+	4. Lightweight.
+	5. Fast Development.
+	6. Powerful abstraction.
+	7. Declarative support.
+	
+===========================================================================================================================================================
+
+5. What is IOC container?
+-> IOC container is responsible to instantiate, configure and assemble the objects. IOC works on the basis of configuration file.
+
+============================================================================================================================================================
+
+6. What are the main functions of IOC container?
+->  1. Instantiate application class.
+	2. configure objects.
+	3. identify the dependacny between the objects.
+
+===========================================================================================================================================================
+
+7. What are the type of IOC containers?
+->  1. Bean Factory.
+	2. Application context.
+	
+	Both the IOC containers do the same work. But Application context IOC is build on the top of Bean Factory. Application Context has it's own benefits over Bean factory such as support for web applications.
+	
+	Example of Bean Factory : 
+	Resource resource=new ClassPathResource("applicationContext.xml");  
+	BeanFactory factory=new XmlBeanFactory(resource);
+	
+	Example of Application Context : 
+	ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+	
+============================================================================================================================================================
+
+8. What is Dependancy lookup?
+-> Here we get the resource after we demand. But the problem with DL is : it is tightly coupled and hard to test and maintain.
+
+============================================================================================================================================================
+
+9. What are the type Dependancy Injection?
+->  1. By Constructor.
+	2. By Setter method.
+	
+============================================================================================================================================================
+
+10. What is the default data type of a value when passed through <constructor-arg> tag, if the data type is not secified explicitly?
+-> Spring.
+
+============================================================================================================================================================
+
+11. What can be injected via xml configuration file?
+-> primitive data types, String, other beans.
+
+============================================================================================================================================================
+
+12. 

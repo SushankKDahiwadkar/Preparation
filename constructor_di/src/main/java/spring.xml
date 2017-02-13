@@ -1,0 +1,98 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+	
+	<context:annotation-config/>
+	
+	<!-- DI by constructor -->
+	<bean id="employee" class="com.sushank.constructor_di.model.User">
+		<constructor-arg value="1" type="long"/>
+		<constructor-arg value="Sushank" type="String"/>
+		<constructor-arg value="sushankdahiwadkar@gmail.com" type="String"/>
+		<constructor-arg>
+			<ref bean="address"/> 
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>Software Engineer</value>
+				<value>Blogger</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<list>
+				<ref bean="address1"/>
+				<ref bean="address1"/>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry key="q1" value="what is your father's name"></entry>
+				<entry key="q2" value="what is your pet's name"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="address" class="com.sushank.constructor_di.model.Address">
+		<constructor-arg value="Pune" type="String"/>
+		<constructor-arg value="411057" type="int"/>
+	</bean>
+	
+	<bean id="address1" class="com.sushank.constructor_di.model.Address">
+		<constructor-arg value="Pune1" type="String"/>
+		<constructor-arg value="411057" type="int"/>
+	</bean>
+	
+	<bean id="address2" class="com.sushank.constructor_di.model.Address">
+		<constructor-arg value="Pune2" type="String"/>
+		<constructor-arg value="411057" type="int"/>
+	</bean>
+	
+	<!-- Map with non string values -->
+	<bean id="user1" class="com.sushank.constructor_di.model.User">
+		<constructor-arg value="1" type="long"></constructor-arg>
+	</bean>
+	
+	<bean id="user2" class="com.sushank.constructor_di.model.User">
+		<constructor-arg value="2" type="long"></constructor-arg>
+	</bean>
+	
+	<bean id="answer1" class="com.sushank.constructor_di.model.Answer">
+		<constructor-arg value="This is answer one." type="String"></constructor-arg>
+	</bean>
+	
+	<bean id="answer2" class="com.sushank.constructor_di.model.Answer">
+		<constructor-arg value="This is answer two." type="String"></constructor-arg>
+	</bean>
+			
+	<bean id="question" class="com.sushank.constructor_di.model.Question">
+		<constructor-arg value="1" type="int"></constructor-arg>
+		<constructor-arg value="This is question one." type="String"></constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry key-ref="user1" value-ref="answer1"/>
+				<entry key-ref="user2" value-ref="answer2"/>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Inheritance in bean -->
+	
+	<bean id="question1" class="com.sushank.constructor_di.model.Question">
+		<constructor-arg value="1" type="int"></constructor-arg>
+		<constructor-arg value="This is question one." type="String"></constructor-arg>
+	</bean>
+	
+	<bean id="question2" class="com.sushank.constructor_di.model.Question" parent="question1">
+		<constructor-arg>
+			<map>
+				<entry key-ref="user1" value-ref="answer1"/>
+				<entry key-ref="user2" value-ref="answer2"/>
+			</map>
+		</constructor-arg>
+	</bean>
+			
+</beans>
