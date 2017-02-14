@@ -9,7 +9,7 @@
 	<context:annotation-config/>
 	
 	<!-- DI by constructor -->
-	<bean id="employee" class="com.sushank.constructor_di.model.User">
+	<bean id="user" class="com.sushank.constructor_di.model.User">
 		<constructor-arg value="1" type="long"/>
 		<constructor-arg value="Sushank" type="String"/>
 		<constructor-arg value="sushankdahiwadkar@gmail.com" type="String"/>
@@ -93,6 +93,59 @@
 				<entry key-ref="user2" value-ref="answer2"/>
 			</map>
 		</constructor-arg>
+	</bean>
+	
+	<!-- Setter Injection -->
+	
+	<bean id="user10" class="com.sushank.constructor_di.model.User">
+		<property name="userId">
+			<value>20</value>
+		</property>
+		<property name="userName">
+			<value>Sushank</value>
+		</property>
+		<property name="permanentAddress" ref="address10"></property>
+		<property name="userTags">
+			<list>
+				<value>Blogger</value>
+				<value>Hero</value>
+			</list>
+		</property>
+		<property name="addresses">
+			<list>
+				<ref bean="address10"/>
+				<ref bean="address11"/>
+			</list>
+		</property>
+		<property name="securityQuestions">
+			<map>
+				<entry key="question1" value="This is question1"></entry>
+				<entry key="question2" value="This is question2"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="address10" class="com.sushank.constructor_di.model.Address">
+		<constructor-arg value="Pune1" type="String"/>
+		<constructor-arg value="411057" type="int"/>
+	</bean>
+	<bean id="address11" class="com.sushank.constructor_di.model.Address">
+		<constructor-arg value="Pune1" type="String"/>
+		<constructor-arg value="411057" type="int"/>
+	</bean>
+	
+	<!-- Autowiring -->
+	
+	<bean id="bankDetails" class="com.sushank.constructor_di.model.BankDetails" >
+		<constructor-arg type="long" value="1"></constructor-arg>
+	</bean>
+	
+	<bean id="bankDetail" class="com.sushank.constructor_di.model.BankDetails" >
+		<constructor-arg type="long" value="1"></constructor-arg>
+		<constructor-arg type="String" value="HDFC"></constructor-arg>
+	</bean>
+	
+	<bean id="employee" class="com.sushank.constructor_di.model.Employee" autowire="byName">
 	</bean>
 			
 </beans>

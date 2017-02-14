@@ -90,4 +90,58 @@
 
 ============================================================================================================================================================
 
-12. 
+12. What is the difference between Constructor injection and Setter injection?
+->  1. Setter injection can be used to do partial values injection whereas constructor injection can be only used for absolute injection.
+	2. Setter injection overrides constructor injection. IOC selects setter over constructor.
+	
+============================================================================================================================================================
+
+13. What is autowiring in spring?
+-> autowiring is used to inject onject dependancy in spring. it internally uses setter or constructor injection.
+
+============================================================================================================================================================
+
+14. Does autowiring in spring support String and primitive data types OR can String and primitive data types be autowired?
+-> No.
+
+============================================================================================================================================================
+
+15. What are the modes of autowiring?
+->  1. byName : the bean name and the property name should be same.
+	2. byType : the bean type and the property type should be same.
+	3. constructor : by calling the constructor of the class. constructor with largest number of parameter is called.
+
+============================================================================================================================================================
+
+16. what are different bean scopes?
+->  1. singleton
+	2. prototype
+	3. request
+	4. session
+	5. global-session
+
+============================================================================================================================================================
+
+17. what is the default scope of the bean?
+-> singleton.
+
+============================================================================================================================================================
+
+18. when to use prototype and singleton scope for bean?
+-> singleton scope is used when the bean is stateless and prototype is used when bean is statefull.
+
+============================================================================================================================================================
+
+19. What are the Interfaces used for doing initialising and disposing work in bean lifecycle.
+->  1. InitilizingBean
+	2. DisposableBean
+	
+============================================================================================================================================================
+
+20. What are the XML tags for doing initialising and disposing work in bean lifecycle.
+-> init-method, destroy-method
+
+============================================================================================================================================================
+
+21. What are the XML tags for doing initialising and disposing work for a bean globally.
+-> default-init-method, default-destroy-method

@@ -6,6 +6,8 @@ import java.util.Set;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.sushank.constructor_di.model.BankDetails;
+import com.sushank.constructor_di.model.Employee;
 import com.sushank.constructor_di.model.Question;
 import com.sushank.constructor_di.model.User;
 
@@ -22,7 +24,7 @@ public class App
     	
     	ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
     	
-    	User user = (User) context.getBean("employee");
+    	User user = (User) context.getBean("user");
     	//System.out.println(user.toString());
     	
     	Set<Entry<String, String>> entrySet = user.getSecurityQuestions().entrySet();
@@ -35,6 +37,17 @@ public class App
     	//System.out.println(question);
     	
     	Question question2 = (Question) context.getBean("question2");
-    	System.out.println(question2);
+    	//System.out.println(question2);
+    	
+    	//Setter Injection
+    	
+    	User user10 = (User) context.getBean("user10");
+    	//System.out.println(user10);
+    	
+    	Employee employee = (Employee) context.getBean("employee");
+    	System.out.println(employee);
+    	
+    	BankDetails bankDetails = (BankDetails) context.getBean("bankDetail");
+    	//System.out.println(bankDetails);
     }
 }
