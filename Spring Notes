@@ -145,3 +145,20 @@
 
 21. What are the XML tags for doing initialising and disposing work for a bean globally.
 -> default-init-method, default-destroy-method
+
+============================================================================================================================================================
+
+22. Which injection is done first? annotation based or XML based?
+-> annotation.
+
+============================================================================================================================================================
+
+23. Are annotations enabled by default in spring?
+-> No. To enable annotations one need to specify explicitly by declaring a line in config xml (<context:annotation-config/>)
+
+============================================================================================================================================================
+
+24. what is @Required used for?
+-> It specifies that the value for the property is must, and should be populated via configuration file.
+
+============================================================================================================================================================

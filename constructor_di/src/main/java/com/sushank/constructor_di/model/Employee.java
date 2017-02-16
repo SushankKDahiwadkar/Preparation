@@ -1,11 +1,13 @@
 package com.sushank.constructor_di.model;
 
+import org.springframework.beans.factory.annotation.Required;
+
 public class Employee {
 	private int employeeId;
 	private String employeeName;
 	private BankDetails bankDetails;
 	
-	public Employee() {
+	/*public Employee() {
 		super();
 		System.out.println("Employee Created");
 		// TODO Auto-generated constructor stub
@@ -16,12 +18,13 @@ public class Employee {
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 		this.bankDetails = bankDetails;
-	}
-
+	}*/
+	
 	public int getEmployeeId() {
 		return employeeId;
 	}
-
+	
+	@Required
 	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
