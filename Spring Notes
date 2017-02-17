@@ -162,3 +162,32 @@
 -> It specifies that the value for the property is must, and should be populated via configuration file.
 
 ============================================================================================================================================================
+
+25. What is @Autowired used for?
+-> @Autowired annotation is used to autowire the bean or dependancy easily. It can be used with setter method or a bean property.
+
+============================================================================================================================================================
+
+26. What is the default autowire type used by @Autowired annotation?
+-> byType.
+
+============================================================================================================================================================
+
+27. What is the default behaviour of @Autowired annotation?
+-> @Autowired annotation by default makes the property in the bean required. We can set it false by using (required=false) after @Autowired annotation.
+
+===========================================================================================================================================================
+
+28. What is @Qualifier used for?
+-> It is used for specifying a bean by name. It is used as @Qualifier("<bean-name>").
+
+===========================================================================================================================================================
+
+29. What if two beans are defined in configuration file with same type and different name and the property in other bean is specified as autowired, which bean from config file will be picked up?
+-> Here the autowiring will be done "byName". And if the name is also not same in config and java file then error will occur.
+
+===========================================================================================================================================================
+
+
+
+

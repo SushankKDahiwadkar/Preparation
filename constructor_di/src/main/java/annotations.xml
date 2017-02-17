@@ -11,4 +11,15 @@
 	<bean id="employee" class="com.sushank.constructor_di.model.Employee">
 		<property name="employeeId" value="1"></property>
 	</bean>
+	
+	<bean id="bankDetails" class="com.sushank.constructor_di.model.BankDetails">
+		<constructor-arg type="long" value="01"></constructor-arg>
+		<constructor-arg type="String" value="HDFC"></constructor-arg>
+	</bean>
+	
+	<bean id="bankDetails1" class="com.sushank.constructor_di.model.BankDetails">
+		<constructor-arg type="long" value="02"></constructor-arg>
+		<constructor-arg type="String" value="ICICI"></constructor-arg>
+	</bean>
+	
 </beans>

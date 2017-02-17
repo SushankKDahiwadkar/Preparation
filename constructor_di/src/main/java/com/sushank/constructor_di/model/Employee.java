@@ -1,24 +1,34 @@
 package com.sushank.constructor_di.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
 
 public class Employee {
 	private int employeeId;
 	private String employeeName;
+	
+	@Autowired
+	@Qualifier("bankDetails1")
 	private BankDetails bankDetails;
 	
-	/*public Employee() {
+	public Employee() {
 		super();
 		System.out.println("Employee Created");
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	public Employee(int employeeId, String employeeName, BankDetails bankDetails) {
 		super();
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 		this.bankDetails = bankDetails;
-	}*/
+	}
+	
+	//@Autowired
+	public Employee(BankDetails bankDetails) {
+		this.bankDetails = bankDetails;
+	}
 	
 	public int getEmployeeId() {
 		return employeeId;
@@ -40,10 +50,11 @@ public class Employee {
 	public BankDetails getBankDetails() {
 		return bankDetails;
 	}
-
+	
+	/*@Autowired
 	public void setBankDetails(BankDetails bankDetails) {
 		this.bankDetails = bankDetails;
-	}
+	}*/
 
 	@Override
 	public String toString() {
