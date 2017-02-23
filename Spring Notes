@@ -188,6 +188,15 @@
 
 ===========================================================================================================================================================
 
+30. What is @Configuration and @Bean used for?
+-> Annotating a class with the @Configuration indicates that the class can be used by the Spring IoC container as a source of bean definitions. The @Bean annotation tells Spring that a method annotated with @Bean will return an object that should be registered as a bean in the Spring application context.
 
+============================================================================================================================================================ 
 
+31. What if the @Configuration is not specified and @Bean is specified?
+-> It works.
 
+============================================================================================================================================================
+
+32. What if the @Bean is not specified and @Bean is specified?
+-> It does not works.
