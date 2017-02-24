@@ -200,3 +200,18 @@
 
 32. What if the @Bean is not specified and @Bean is specified?
 -> It does not works.
+
+============================================================================================================================================================
+
+33. What is event handling in spring?
+-> Application Context generates several event which can be used for various purposes. Following are the event:
+	1. ContextRefreshedEvent
+	2. ContextStartedEvent
+	3. ContextStoppedEvent
+	4. ContextClosedEvent
+	5. RequestHandledEvent
+
+============================================================================================================================================================
+
+34. What Interface does bean has to implement to listed to context event?
+-> ApplicationListener. ApplicationListener has only one method onApplicationEvent().
