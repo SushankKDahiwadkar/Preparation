@@ -215,3 +215,57 @@
 
 34. What Interface does bean has to implement to listed to context event?
 -> ApplicationListener. ApplicationListener has only one method onApplicationEvent().
+
+============================================================================================================================================================
+
+35. What is Asepect oriented Programming (AOP)?
+-> AOP is to separate out the common logic from the main buisness logic. The program is sliced into various components called as concerns. AOP can be used for logging, auditing etc.
+
+============================================================================================================================================================
+
+36. What is Aspect?
+-> Aspect can be called as Module which provides certain APIs or functionality which can be used in program. Logging can be called as an aspect which can be used by spring AOP for logging.
+
+============================================================================================================================================================
+
+37. What is Join Point?
+-> Join point can be a place where the aspect can be plugged in into the code. for example, logging aspect can be placed at the start and end of the function.
+
+============================================================================================================================================================
+
+38. What is Advice?
+-> This is the actual action to be taken before or after the method execution. This is the actual code which is invoked by Spring AOP.
+
+============================================================================================================================================================
+
+39. What is Pointcut?
+-> It is a set of Join points where an Advice is expected to be executed.
+
+============================================================================================================================================================
+
+40. What is Introduction?
+-> Introduction allows you to add new methods and attributed to the existing class.
+
+============================================================================================================================================================
+
+41. What is Target Object?
+-> Target object is the object where one or mode aspects are adviced. This is a proxy object often being called as advised object.
+
+============================================================================================================================================================
+
+42. What is Weaving?
+-> Weaving is the process of linking aspects to other applications or objects to create new advised object. Can be done at compile time, load time or runnig time.
+
+============================================================================================================================================================
+
+43. What are the type of Advices in AOP?
+->  1. before - executes before method execution.
+	2. after - executes after methhod execution.
+	3. after-returning - executes if the method executes successfully.
+	4. after-throwing - executes only if methdo exits by throwing execption.
+	5. around - before and after the method execution.
+	
+============================================================================================================================================================
+
+44. 
+  
