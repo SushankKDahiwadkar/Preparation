@@ -267,5 +267,16 @@
 	
 ============================================================================================================================================================
 
-44. 
-  
+44. When does the Advice executes?
+-> If we will create any bean using new operator the advices will not be applied. Only when we will use ApplicationContext to get the bean, advices will be applied. 
+
+45. What is the use of @PointCut annotation?
+-> A method annotated with @Pointcut annotation can directly be used in the place of any expression in other advices (method annotations).
+
+46. How to get method signature or method arguments in Advice method?
+-> We can use JoinPoint as parameter in the advice methods and using it get the method signature or the target object.
+
+47. What is "within" used for in pointcut expressions?
+-> We can use within in pointcut expression to apply advice to all the methods in the class.
+
+
