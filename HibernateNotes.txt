@@ -1,0 +1,65 @@
+1. What is Hibernate Framework?
+-> Hibernate framework simplifies the development of java application to interact with the database. Hibernate is an open source, lightweight, ORM (Object Relational Mapping) tool.
+
+2. What are the advantages of hibernate?
+->  1. Opensource and Ligehtweight.
+	2. Fast Performance due to internal Caching.
+	3. Database Independant query.
+	4. Automatic table creation.
+	5. Simplifies complex joins
+	6. Provides query statistics and database status.
+	
+3. What is Session Factory?
+-> Session factory provides Session Objects. It is client of ConnectionProvider. It holds second level cache of data. It is an interface which provides object of session.
+
+4. What is Session?
+-> It provides the interface between application and database. It is factory of Transaction, Query and Criteria. It holds first level cache. The org.hibernate.Session interface provides methods to insert, update and delete the object. It also provides factory methods for Transaction, Query and Criteria.
+
+5. What is Transaction?
+-> The transaction object specifies the atomic unit of work. It is optional. The org.hibernate.Transaction interface provides methods for transaction management.
+
+6. What is ConnectionProvider?
+-> It is a factory of JDBC connections. It abstracts the application from DriverManager or DataSource. It is optional.
+
+7. What is TransactionFactory?
+-> It is a factory of Transaction. It is optional.
+
+8. What are the normal steps for a hibernate program to run?
+->  1. Create Configuration Object.
+	2. configure Configuration object with configuration file. (hibernate.cfg.xml)
+	3. Create SessionFactory object and initialise it with cfg.buildSessionFactory();
+	4. Create Session object and initialize it with sessionFactory.openSession();
+	5. Create TransactionObject and initialize it with session.beginTransaction();
+	6. Create and initialise the bean object.
+	7. call persist method on session object session.persist(employee);
+	8. call commit method on transaction object transaction.commit();
+	9. close the session object session.close();
+
+9. What is the main advantage of using annotation over xml in hibernate?
+-> The core advantage of using hibernate annotation is that you don't need to create mapping (hbm) file. Here, hibernate annotations are used to provide the 	meta data.
+
+10. What is Generator Class in hibernate?
+-> The <generator> subelement of id used to generate the unique identifier for the objects of persistent class. There are many generator classes defined in the Hibernate Framework.
+	Following are the types of generator classes : 
+	1. assigned
+	2. increment
+	3. sequence
+	4. hilo
+	5. native
+	6. identity
+	7. seqhilo
+	8. uuid
+	9. guid
+	10. select
+	11. foreign
+	12. sequence-identity
+
+11. How many inheritance mapping strategies are defined in hibernate?
+->  1. Table Per Hierarchy : A single table is used to store the entire hierarchy.
+	2. Table Per Concrete class :  In case of table per concrete class, tables are created as per class. But duplicate column is added in subclass tables.
+	3. Table Per Subclass : In this strategy, tables are created as per class but related by foreign key. So there are no duplicate columns.
+
+12. How does Table per hierarchy works?
+-> In case of table per class hierarchy an discriminator column is added by the hibernate framework that specifies the type of the record. It is mainly used to distinguish the record. To specify this, discriminator sub-element of class must be specified.
+
+
