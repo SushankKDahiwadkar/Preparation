@@ -279,4 +279,31 @@
 47. What is "within" used for in pointcut expressions?
 -> We can use within in pointcut expression to apply advice to all the methods in the class.
 
+48. What is the lifecycle of Spring MVC?
+->  1. Dispatcher Servlet
+	2. Handler Mapping
+	3. Controller.
+	4. View Resolver.
+	5. View.
+
+49. What is @Controller used for?
+-> @Controller annotation marks this class as spring bean which may handle different HTTP requests based on mapping specified on class or individual controller methods.
+
+50. What is @RequestMapping used for?
+-> @RequestMapping annotation is used for mapping web requests onto specific handler classes and/or handler methods.
+
+51. What is you don't specify HTTP method in @requestMapping?
+-> The same method will serve all type of Http methods.
+
+52. What is ModelMap?
+-> ModelMap is a Map implementation, which saves you from old request.getAttribute/ request.setAttribute. It provides a way to set/get attributes from/to request or session.
+
+53. Why is <mvc:annotation-driven /> used for?
+-> This is used to inform the application that please check for annotations.
+
+54. why is  <context:component-scan base-package="com.sushank.spring" /> used?
+-> it informs the application that please look for all the annotated classes in the specified package.
+
+55. 
+	
 
