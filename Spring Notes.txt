@@ -304,6 +304,15 @@
 54. why is  <context:component-scan base-package="com.sushank.spring" /> used?
 -> it informs the application that please look for all the annotated classes in the specified package.
 
-55. 
+55. What is @Configuration used for?
+-> @Configuration indicates that this class contains one or more bean methods annotated with @Bean producing bean manageable by spring container.
+
+56. What is @EnableMVC used for?
+-> @EnableWebMvc is equivalent to mvc:annotation-driven in XML. It enables support for @Controller-annotated classes that use @RequestMapping to map incoming requests to specific method.
+
+57. What is @ComponentScan used for?
+-> @ComponentScan is equivalent to context:component-scan base-package="..." providing with where to look for spring managed beans/classes.
+
+58. 
 	
 
