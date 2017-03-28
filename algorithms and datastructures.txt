@@ -1,0 +1,2 @@
+Bubble Sort : Compares adjacent elements. O(n2)
+
