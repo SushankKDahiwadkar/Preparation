@@ -61,5 +61,42 @@
 
 12. How does Table per hierarchy works?
 -> In case of table per class hierarchy an discriminator column is added by the hibernate framework that specifies the type of the record. It is mainly used to distinguish the record. To specify this, discriminator sub-element of class must be specified.
+	- Specify <discriminator column="type" type="string"></discriminator> property into the main class
+	- Add discriminator-value="reg_emp" property in class declaration.
+	- @Inheritance(strategy=InheritanceType.SINGLE_TABLE), @DiscriminatorColumn and @DiscriminatorValue in annotations bases.
+
+13. How does table per Concrete works?
+-> In case of Table Per Concrete class, there will be three tables in the database having no relations to each other. But the relationship is maintained by union-subclass element.
+	-  <union-subclass name="com.javatpoint.mypackage.Regular_Employee" table="regemp122"> property into the main class.
+	- @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) to the parent class.
+	- @AttributeOverrides() to the child class.
+	- Disadvantage : duplicate columns are created in child tables.
+
+14. How does table per subclass works?
+-> In case of Table Per Subclass, subclass mapped tables are related to parent class mapped table by primary key and foreign key relationship. The <joined-subclass> element of class is used to map the child class with parent using the primary key and foreign key relation. 
+	- @Inheritance(strategy=InheritanceType.JOINED) in parent class.
+	- @PrimaryKeyJoinColumn(name="ID") in child class.
+
+15. How is list is mapped in persistence class?
+-> In mapping file <list> element is provided. List accepts following properties : 
+	- <key> : used to specify the foreign key to the parent class in child/ associated table.
+	- <index> : list and map are indexed collections so this is element is necessary.
+	- <element> : used to specify the column for storing collection's value if the collection is of string type.
+
+16. What are type of collection elements? and how are mappings managed?
+-> The <element> and <component-element> are used for normal value such as string, int etc. whereas <one-to-many> and <many-to-many> are used to map entity reference.
+
+17. What collection types are supportd?
+->  - <list>
+	- <set>
+	- <bag>
+	- <map>
+
+18. What is lazy collections?
+-> in lazy collection child objects are fetched on demand. From hibernate 3.0 lazy collection is enabled by default. To set lazy loading true. "lazy" attribute is provided by collection.
+	<list name="answers" lazy="true"> 
+	
+19. What is component mapping?
+-> In component mapping, we will map the dependent object as a component. An component is an object that is stored as an value rather than entity reference. This is mainly used if the dependent object doesn't have primary key. It is used in case of composition (HAS-A relation), that is why it is termed as component.
 
 
