@@ -1,0 +1,13 @@
+http://myjourneyonjava.blogspot.in/2015/09/spring-4-mvc-hibernate-4-mysql-5-maven.html
+
+CREATE DATABASE sushankpractise;
+
+USE sushankpractise;
+
+CREATE TABLE Employees (
+        id BIGINT NOT NULL AUTO_INCREMENT,
+        age INTEGER,
+        NAME VARCHAR(255),
+        salary FLOAT,
+        PRIMARY KEY (id)
+)

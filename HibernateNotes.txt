@@ -99,4 +99,131 @@
 19. What is component mapping?
 -> In component mapping, we will map the dependent object as a component. An component is an object that is stored as an value rather than entity reference. This is mainly used if the dependent object doesn't have primary key. It is used in case of composition (HAS-A relation), that is why it is termed as component.
 
+20. What are the important methods in Hibernate Transaction?
+->  1. void begin() - start the new transaction.
+	2. void commit() ends the unit of work unless we are in FlushMode.NEVER.
+	3. void rollback() forces this transaction to rollback.
+	4. void setTimeout(int seconds) it sets a transaction timeout for any transaction started by a subsequent call to begin on this instance.
+	5. boolean isAlive() checks if the transaction is still alive.
+	6. void registerSynchronization(Synchronization s) registers a user synchronization callback for this transaction.
+	7. boolean wasCommited() checks if the transaction is commited successfully.
+	8. boolean wasRolledBack() checks if the transaction is rolledback successfully.
 
+21. What are the important methods of query interface used in Hibernate Query Language (HQL)?
+->  public int executeUpdate() is used to execute the update or delete query.
+	public List list() returns the result of the ralation as a list.
+	public Query setFirstResult(int rowno) specifies the row number from where record will be retrieved.
+	public Query setMaxResult(int rowno) specifies the no. of records to be retrieved from the relation (table).
+	public Query setParameter(int position, Object value) it sets the value to the JDBC style query parameter.
+	public Query setParameter(String name, Object value) it sets the value to a named query parameter.
+	
+22. How are HQL query is created?
+-> 	Query query=session.createQuery("from Emp");//here persistent class name is Emp  
+	List list=query.list(); 
+
+23. What are the important methods of Criterion interface?
+->  public Criteria add(Criterion c) is used to add restrictions.
+	public Criteria addOrder(Order o) specifies ordering.
+	public Criteria setFirstResult(int firstResult) specifies the first number of record to be retreived.
+	public Criteria setMaxResult(int totalResult) specifies the total number of records to be retreived.
+	public List list() returns list containing object.
+	public Criteria setProjection(Projection projection) specifies the projection.
+	
+24. Methods of Restriction Class?
+->  public static SimpleExpression lt(String propertyName,Object value) sets the less than constraint to the given property.
+	public static SimpleExpression le(String propertyName,Object value) sets the less than or equal constraint to the given property.
+	public static SimpleExpression gt(String propertyName,Object value) sets the greater than constraint to the given property.
+	public static SimpleExpression ge(String propertyName,Object value) sets the greater than or equal than constraint to the given property.
+	public static SimpleExpression ne(String propertyName,Object value) sets the not equal constraint to the given property.
+	public static SimpleExpression eq(String propertyName,Object value) sets the equal constraint to the given property.
+	public static Criterion between(String propertyName, Object low, Object high) sets the between constraint.
+	public static SimpleExpression like(String propertyName, Object value) sets the like constraint to the given property.
+
+25. Methods of Order Class?
+->  public static Order asc(String propertyName) applies the ascending order on the basis of given property.
+	public static Order desc(String propertyName) applies the descending order on the basis of given property.
+
+26. Example of Criterion Class?
+-> 	Crietria c=session.createCriteria(Emp.class);//passing Class class argument  
+	List list=c.list();
+
+27. Example of Restriction?
+->  Crietria c=session.createCriteria(Emp.class);  
+	c.add(Restrictions.gt("salary",10000));//salary is the propertyname  
+	List list=c.list();  	
+	
+28. Example of Order?
+->  Crietria c=session.createCriteria(Emp.class);  
+	c.addOrder(Order.asc("salary"));  
+	List list=c.list();  
+	
+29. Example of Projection?
+->  Criteria c=session.createCriteria(Emp.class);  
+	c.setProjection(Projections.property("name"));  
+	List list=c.list(); 
+	
+30. What is named queries?
+-> The hibernate named query is way to use any query by some meaningful name. It is like using alias names. Can be done using annotations or mapping file.
+
+32. what are the annotations of named query?
+->  @NameQueries annotation is used to define the multiple named queries.
+	@NameQuery annotation is used to define the single named query.
+	Example :
+	@NamedQueries(  
+    {  
+        @NamedQuery(  
+        name = "findEmployeeByName",  
+        query = "from Employee e where e.name = :name"  
+        )  
+    }  
+	)  
+	
+	 //Hibernate Named Query  
+    Query query = session.getNamedQuery("findEmployeeByName");  
+    query.setString("name", "amit");  
+	
+	// in mapping file 
+	<query name="findEmployeeByName">  
+	<![CDATA[from Employee e where e.name = :name]]>  
+	</query>
+
+33. What is first level cache?
+-> The first-level cache is the Session cache and is a mandatory cache through which all requests must pass. The Session object keeps an object under its own power before committing it to the database.
+	If you issue multiple updates to an object, Hibernate tries to delay doing the update as long as possible to reduce the number of update SQL statements issued. If you close the session, all the objects being cached are lost and either persisted or updated in the database.
+
+34. What is second level cache?
+-> Hibernate second level cache uses a common cache for all the session object of a session factory. It is useful if you have multiple session objects from a session factory.
+SessionFactory holds the second level cache data. It is global for all the session objects and not enabled by default.
+
+35. What is query level cache?
+-> Hibernate also implements a cache for query resultsets that integrates closely with the second-level cache.
+	This is an optional feature and requires two additional physical cache regions that hold the cached query results and the timestamps when a table was last updated. This is only useful for queries that are run frequently with the same parameters.
+
+36. What are concurrency strategies supported by second level cache?
+-> 	read-only: caching will work for read only operation.
+	nonstrict-read-write: caching will work for read and write but one at a time.
+	read-write: caching will work for read and write, can be used simultaneously.
+	transactional: caching will work for transaction.
+	
+37. how to specify concurrency strategy in hbm.xml file?
+-> <cache usage="read-only" />
+
+38. Which are the cache providers?
+-> 	1. EHCache - It can cache in memory or on disk and clustered caching and it supports the optional Hibernate query result cache.
+	2. OSCache - Supports caching to memory and disk in a single JVM, with a rich set of expiration policies and query cache support.
+	3. warmCache - A cluster cache based on JGroups. It uses clustered invalidation but doesn't support the Hibernate query cache
+	4. JBoss Cache - A fully transactional replicated clustered cache also based on the JGroups multicast library. It supports replication or invalidation, synchronous or asynchronous communication, and optimistic and pessimistic locking. The Hibernate query cache is supported
+
+39. How to specify cache providers in hibernate.cfg.xml file?
+-> <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+
+40. How to enable batch processing in hibernate?
+-> set the batch size property in hibernate.cfg.xml
+	<property name="hibernate.jdbc.batch_size">
+      50
+   </property>
+   
+41. How to use batch processing in hibernate?
+-> use session.flush and session.clear after the record numbers specified in hibernate.jdbc.batch_size property.
+
+42. 
